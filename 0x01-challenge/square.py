@@ -19,8 +19,6 @@ class Square():
                     self.width = value
                 elif key == "height":
                     self.height = value
-                else:
-                    setattr(self, key, value)
 
     @property
     def width(self):
