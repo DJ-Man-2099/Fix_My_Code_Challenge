@@ -15,7 +15,12 @@ class Square():
             self.height = args[1]
         else:
             for key, value in kwargs.items():
-                setattr(self, key, value)
+                if key == "width":
+                    self.width = value
+                elif key == "height":
+                    self.height = value
+                else:
+                    setattr(self, key, value)
 
     @property
     def width(self):
