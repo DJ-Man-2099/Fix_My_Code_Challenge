@@ -6,19 +6,15 @@ class Square():
     """ Square class """
 
     __width = 0
-    __height = 0
 
     def __init__(self, *args, **kwargs):
         """ Constructor """
         if len(args) > 0:
             self.width = args[0]
-            self.height = args[1]
         else:
             for key, value in kwargs.items():
                 if key == "width":
                     self.width = value
-                elif key == "height":
-                    self.height = value
 
     @property
     def width(self):
@@ -34,31 +30,17 @@ class Square():
             raise ValueError("width must be >= 0")
         self.__width = value
 
-    @property
-    def height(self):
-        """ height getter """
-        return self.__height
-
-    @height.setter
-    def height(self, value):
-        """ height setter """
-        if not isinstance(value, int):
-            raise TypeError("height must be an integer")
-        if value < 0:
-            raise ValueError("height must be >= 0")
-        self.__height = value
-
     def area_of_my_square(self):
         """ Area of the square """
-        return self.width * self.height
+        return self.width * self.width
 
     def perimeter_of_my_square(self):
         """ Perimeter of the square"""
-        return (self.width * 2) + (self.height * 2)
+        return (self.width * 2) + (self.width * 2)
 
     def __str__(self):
         """ String representation"""
-        return "{}/{}".format(self.width, self.height)
+        return "{}/{}".format(self.width, self.width)
 
 
 if __name__ == "__main__":
